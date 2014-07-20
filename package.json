@@ -1,0 +1,31 @@
+{
+  "name": "Polymer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JLBoor/Polymer.git"
+  },
+  "keywords": [
+    "Google",
+    "AngularJS",
+    "Polymer",
+    "Javascript",
+    "node.js",
+    "hapi"
+  ],
+  "author": "Jean-Louis Bourgeois",
+  "bugs": {
+    "url": "https://github.com/JLBoor/Polymer/issues"
+  },
+  "homepage": "https://github.com/JLBoor/Polymer",
+  "dependencies": {
+    "hapi": "~6.2.0"
+  }
+}
