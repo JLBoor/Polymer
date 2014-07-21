@@ -1,15 +1,19 @@
-var Hapi = require('hapi');
+var Hapi = require('hapi'),
+    swig = require('swig');
 
+swig.setDefaults({ cache: false });
 
 var serverOptions = {
     views: {
         engines: {
             'html': {
-                module: require('swig'),
-                compileMode: 'sync' // engine specific
+                module: swig,
+                compileMode: 'sync', // engine specific
+                isCached: false
             }
         },
-        compileMode: 'async' // global setting
+        compileMode: 'async', // global setting
+        isCached: false
     }
 }
 
