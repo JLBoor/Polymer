@@ -9,15 +9,31 @@
 
 
     <link rel="import" href="/bower_components/core-icons/core-icons.html">
+    <link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
     <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
 
-    <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="/bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
     <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+
+    <style>
+        core-scroll-header-panel {height: 100%;}
+        core-scroll-header-panel::shadow #condensedHeaderBg {
+            background-color: #0073ff;
+        }
+    </style>
 </head>
 
+
 <body fullbleed vertical layout>
-    <core-header-panel mode="waterfall-tall" flex>
-        <core-toolbar>Header</core-toolbar>
+
+    <core-scroll-header-panel condenses>
+        <core-toolbar class="tall">
+            <core-icon-button icon="arrow-back"></core-icon-button>
+            <div flex=""></div>
+            <core-icon-button icon="search"></core-icon-button>
+            <core-icon-button icon="more-vert"></core-icon-button>
+            <div class="bottom indent title">Header</div>
+        </core-toolbar>
         <div class="content">
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultricies neque at quam facilisis eleifend a sit amet ligula. Maecenas augue erat, aliquam ac sollicitudin at, dictum et tortor. Pellentesque dignissim consequat imperdiet. Ut a arcu mauris. Nullam nisl neque, facilisis a pharetra in, gravida id leo. Integer tincidunt accumsan neque, sit amet porttitor leo aliquet suscipit. Sed porta viverra hendrerit. Fusce molestie leo ac ante ultricies malesuada. Nunc convallis erat ut nunc sagittis dignissim vitae nec nisi.
@@ -80,6 +96,6 @@
 
     Duis sagittis turpis ligula, id luctus metus gravida eu. Nullam ac libero ac eros congue tincidunt sit amet a dolor. Nulla ut tellus non massa ultrices imperdiet vel in magna. Sed eu pharetra turpis. Phasellus mattis iaculis tempus. Etiam risus nulla, ornare facilisis varius vel, fermentum et dolor. Proin vitae augue commodo purus tempus dignissim ut quis leo. Praesent et purus lobortis, pretium purus ut, lacinia elit. Ut a turpis a lectus eleifend mollis.
 </div>
-    </core-header-panel>
+    </core-scroll-header-panel>
 
 </body>
