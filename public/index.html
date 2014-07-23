@@ -16,10 +16,14 @@
     <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
 
     <style>
-        core-scroll-header-panel {height: 100%;}
-        core-scroll-header-panel::shadow #condensedHeaderBg {
-            background-color: #0073ff;
-        }
+        html, body {height: 100%; font-family: "Helvetica Neue";}
+
+        core-scroll-header-panel {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+        core-scroll-header-panel::shadow #headerBg {background-color: #0069d2;}
+        core-scroll-header-panel::shadow #condensedHeaderBg {background-color: #002952;}
+
+        core-toolbar {background-color: transparent; color: white;}
+        .content {padding: 15px 50px;}
     </style>
 </head>
 
@@ -32,7 +36,9 @@
             <div flex=""></div>
             <core-icon-button icon="search"></core-icon-button>
             <core-icon-button icon="more-vert"></core-icon-button>
-            <div class="bottom indent title">Header</div>
+            <div class="bottom indent">
+                <h1>Header</h1>
+            </div>
         </core-toolbar>
         <div class="content">
             <lorem-ipsum paragraphs="50"></lorem-ipsum>
@@ -53,3 +59,6 @@
         });
     </script>
 </polymer-element>
+
+
+
