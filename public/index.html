@@ -13,22 +13,23 @@
     <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
 
     <link rel="import" href="/bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
-    <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
 
     <style>
-        html, body {height: 100%; font-family: "Helvetica Neue";}
+        html, body {height: 100%; font-family: "Helvetica Neue"; margin: 0; padding: 0;}
 
         core-scroll-header-panel {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
         core-scroll-header-panel::shadow #headerBg {background-color: #0069d2;}
         core-scroll-header-panel::shadow #condensedHeaderBg {background-color: #002952;}
 
         core-toolbar {background-color: transparent; color: white;}
-        .content {padding: 15px 50px;}
+
+        .content {height: 100%; margin-top: 50px;}
+
     </style>
 </head>
 
 
-<body fullbleed vertical layout>
+<body vertical layout>
 
     <core-scroll-header-panel condenses>
         <core-toolbar class="tall">
@@ -40,8 +41,11 @@
                 <h1>Header</h1>
             </div>
         </core-toolbar>
+
         <div class="content">
-            <lorem-ipsum paragraphs="50"></lorem-ipsum>
+            <core-drawer-panel>
+                <lorem-ipsum paragraphs="50"></lorem-ipsum>
+            </core-drawer-panel>
         </div>
     </core-scroll-header-panel>
 </body>
