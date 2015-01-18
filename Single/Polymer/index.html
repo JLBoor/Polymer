@@ -10,11 +10,9 @@
   <link rel="import" href="bower_components/core-list/core-list.html">
 
   <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
 
   <style>
-
-
-
 
     body {
       font-family: sans-serif;
@@ -38,10 +36,14 @@
 
     .core-header.tall { height: 250px; color: #FFF; }
 
+    .list-container {margin: 5%; float: left; width: 40%;}
     .list-header .list-cell {font-weight: bold;}
     .list-cell { width: 150px; display: inline-block; padding: 10px 0; }
     .list-row { border-bottom: 1px solid lightgray; }
     .list-row.selected { background: lightblue; }
+
+    paper-shadow {margin: 5%; float: right; width: 40%;}
+
 
   </style>
 
@@ -52,9 +54,9 @@
       <div class="core-header">Awesome Website Title</div>
       <div fit class="content">
 
-
+        <div class="list-container">
         <paper-input-decorator label="Search" floatinglabel>
-          <input is="core-input" placeholder="Search">
+          <input is="core-input" placeholder="{{committedValue}}">
         </paper-input-decorator>
 
           <div class="list-header">
@@ -66,18 +68,21 @@
           <core-list style="height: 500px; float: left; width: 600px;">
             <core-ajax auto url="../_data/users.json" handleas="json" hidden></core-ajax>
             <template>
-              <div class="list-row {{selected ? 'selected' : ''}}">
+              <div class="list-row {{ {selected: selected } | tokenList}}">
                 <span class="list-cell">{{model.lastname}}</span>
                 <span class="list-cell">{{model.firstname}}</span>
                 <span class="list-cell">{{model.age}}</span>
               </div>
             </template>
           </core-list>
+        </div>
 
         <template id="userDetails" is="auto-binding">
-          <img src="{{user.picture}}"/>
-          <span>{{user.country}}</span>
-          <p>{{user.bio}}</p>
+          <paper-shadow z="2">
+            <p style="float: right; width: 70%;">{{user.bio}}</p>
+            <img src="{{user.picture}}"/>
+            <span style="display: block;">{{user.country}}</span>
+          </paper-shadow>
         </template>
 
       </div>
@@ -91,13 +96,25 @@
 
     var ajax = document.querySelector("core-ajax");
     var list = document.querySelector("core-list");
+    var search = document.querySelector("paper-input-decorator input");
+    var userDetails = document.querySelector("#userDetails")
+
+    search.addEventListener("change", function(e) {
+
+      list.data = list.users.filter(function(e) {
+        return e.lastname.indexOf(search.value) !== -1
+      });
+      userDetails.user = null;
+
+    });
 
     ajax.addEventListener("core-response", function(e) {
-      document.querySelector('core-list').data = e.detail.response;
+      list.users = e.detail.response;
+      list.data = list.users;
     });
 
     list.addEventListener("core-activate", function(e) {
-      document.querySelector("#userDetails").user = e.detail.data;
+      userDetails.user = e.detail.data;
     });
 
   });
