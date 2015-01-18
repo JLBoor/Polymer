@@ -1,6 +1,7 @@
 Web Components Discovery
 ========================
 
+![Wireframe](./wireframe.png)
 
 ##Polymer ([link](https://www.polymer-project.org/))
 TODO
