@@ -1,6 +1,7 @@
 Web Components Discovery
 ========================
 
+
 ##Polymer ([link](https://www.polymer-project.org/))
 TODO
 
@@ -15,3 +16,7 @@ TODO
 
 ##Brick ([link](http://mozbrick.github.io/))
 TODO
+
+##Resources
+
+http://www.json-generator.com/
