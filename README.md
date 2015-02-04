@@ -3,19 +3,19 @@ Web Components Discovery
 
 ![Wireframe](./wireframe.png)
 
-##Polymer ([link](https://www.polymer-project.org/))
+##Polymer - [https://www.polymer-project.org/](https://www.polymer-project.org/)
 TODO
 
-##X-Tags ([link](http://www.x-tags.org/))
+##X-Tags - [http://www.x-tags.org/](http://www.x-tags.org/)
 TODO
 
 ##Vanilla
 TODO
 
-##Bosonic ([link](http://bosonic.github.io/))
+##Bosonic - [http://bosonic.github.io/](http://bosonic.github.io/)
 TODO
 
-##Brick ([link](http://mozbrick.github.io/))
+##Brick - [http://mozbrick.github.io/](http://mozbrick.github.io/)
 TODO
 
 ##Resources
