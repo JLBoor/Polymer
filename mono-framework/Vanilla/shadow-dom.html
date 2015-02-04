@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Awesome Users</title>
+</head>
+
+<body>
+
+    <template id="iwdCardTemplate">
+
+        <style>
+
+            #iwdCard {background: #ecf0f1; display: inline-block; width: 550px; padding: 10px; color: #34495e; border: 2px solid #34495e; font-family: sans-serif; font-weight: 300;}
+
+            img {float: left; padding: 0 20px; padding: 5px 20px 0 10px;}
+
+            .contact-info {display: block;}
+            .contact-info.address-line-1 {font-size: 20px;}
+            .contact-info.address-line-2 {font-size: 18px;}
+            .contact-info.phone-number {font-size: 18px; padding-top: 0.5em; }
+
+        </style>
+
+        <div id="iwdCard">
+
+            <img src="http://www.intelliware.com/wp-content/uploads/intelliware-logo.png" />
+
+            <div>
+                <span class="contact-info address-line-1">200 Adelaide Street West Suite 100</span>
+                <span class="contact-info address-line-2">Toronto, Ontario, M5H 1W7, Canada</span>
+
+                <span class="contact-info phone-number">Tel: (416) 762-0032 / Fax: (416) 762-9001</span>
+            </div>
+
+        </div>
+    </template>
+
+    <h1>Vanilla - Shadow DOM</h1>
+    <h2>IWD Card</h2>
+
+    <iwd-card></iwd-card>
+
+
+    <h2>Same HTML outside the template</h2>
+    <div id="iwdCard">
+
+        <img src="http://www.intelliware.com/wp-content/uploads/intelliware-logo.png" />
+
+        <div>
+            <span class="contact-info address-line-1">200 Adelaide Street West Suite 100</span>
+            <span class="contact-info address-line-2">Toronto, Ontario, M5H 1W7, Canada</span>
+
+            <span class="contact-info phone-number">Tel: (416) 762-0032 / Fax: (416) 762-9001</span>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+
+    var IWDCardProto = Object.create(HTMLElement.prototype, {
+        createdCallback: {
+            value: function() {
+                var template = document.querySelector('#iwdCardTemplate');
+                var clone = document.importNode(template.content, true);
+                this.createShadowRoot().appendChild(clone);
+            }
+        }
+    });
+    document.registerElement('iwd-card', {prototype: IWDCardProto});
+
+</script>
+
+</html>
