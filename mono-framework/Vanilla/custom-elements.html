@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Awesome Users</title>
+</head>
+
+<body>
+
+    <button is="iwd-button" lbl="Custom Label"></button>
+
+</body>
+
+
+<script>
+    <!--
+    // The first argument to document.registerElement() is the element's tag name. The name must contain a dash (-). '
+    // 'So for example, <x-tags>, <my-element>, and <my-awesome-app> are all valid names, while <tabs> and <foo_bar> are not.
+    // // This restriction allows the parser to distinguish custom elements from regular elements but also ensures forward compatibility when new tags are added to HTML.
+    // -->
+    var IWDElement = document.registerElement('iwd-element');
+    document.body.appendChild(new IWDElement());
+</script>
+
+
+<script>
+    var IWDButtonProto = Object.create(HTMLElement.prototype);
+    IWDButtonProto.createdCallback = function() {
+        // Use the lbl attribute as inner html or default to IWD Button
+        this.innerHTML = this.getAttribute('lbl') || 'IWD Button';
+
+        this.addEventListener('click', function(e) {
+            window.open('http://www.intelliware.ca', '_blank').focus();
+        });
+    };
+
+
+    var IWDButton = document.registerElement('iwd-button', {prototype: IWDButtonProto, extends: 'button'});
+    document.body.appendChild(new IWDButton());
+
+</script>
+
+</html>
